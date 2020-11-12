@@ -10,7 +10,7 @@ const Home = () => {
         autoPlay
         loop
         muted
-        src="video/home2.mp4"
+        src="/video/home2.mp4"
         className="video"
       ></video>
       <div className="container">
