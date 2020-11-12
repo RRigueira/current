@@ -7,12 +7,6 @@ module.exports = {
         component: require.resolve(`./src/layout/index.js`),
       },
     },
-    {
-      resolve: `gatsby-source-wordpress-experimental`,
-      options: {
-        url: `https://admin.current.pt/wp/graphql`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     /*{
