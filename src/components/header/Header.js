@@ -22,21 +22,27 @@ const Header = ({ dimensions, location }) => {
           <Link to="/">Current</Link>
         </div>
         <Toggle>
-          {menuState.menuOpened ? (
-            <button
-              className="toggle-button toggle-button--closed"
-              onClick={() => setMenuState({ menuOpened: false })}
-            >
-              Close
-            </button>
-          ) : (
-            <button
-              className="toggle-button"
-              onClick={() => setMenuState({ menuOpened: true })}
-            >
-              Menu
-            </button>
-          )}
+          <button
+            className={
+              menuState.menuOpened
+                ? "linkBubble linkBubble--grey toggle-button"
+                : "linkBubble linkBubble--grey toggle-button toggle-button--closed"
+            }
+            onClick={() => setMenuState({ menuOpened: false })}
+          >
+            Close
+          </button>
+
+          <button
+            className={
+              !menuState.menuOpened
+                ? "linkBubble toggle-button"
+                : "linkBubble toggle-button toggle-button--closed"
+            }
+            onClick={() => setMenuState({ menuOpened: true })}
+          >
+            Menu
+          </button>
         </Toggle>
       </Wrapper>
       <Nav open={menuState.menuOpened} setState={() => setMenuState()} />

@@ -3,7 +3,7 @@ import { HomeContainer } from "@components/home/Home.styles"
 import { Link } from "gatsby"
 import IntroOverlay from "@components/IntroOverlay"
 
-const Home = () => {
+const About = () => {
   return (
     <HomeContainer>
       <video
@@ -23,7 +23,9 @@ const Home = () => {
           </h1>
         </div>
         <div className="row">
-          <Link to="/about" className="linkBubble">Learn More</Link>
+          <Link to="/about" className="linkBubble">
+            Learn More
+          </Link>
         </div>
       </div>
       <IntroOverlay />
@@ -31,4 +33,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default About

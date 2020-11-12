@@ -1,7 +1,8 @@
 import styled from "@emotion/styled"
-import { blue, white } from "../../theme/colors"
+import { blue, white, black, grey } from "../../theme/colors"
 import { p } from "~theme/typography"
 import { h3 } from "../../theme/typography"
+import { pseudo, toRem } from "../../utils/mixins"
 
 export const Wrapper = styled.nav`
   left: 0;
@@ -17,93 +18,52 @@ export const Wrapper = styled.nav`
   .back {
     border-radius: 50%;
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     top: 25px;
-    right: 100px;
+    right: 50px;
     background: ${blue.default};
     transform: translateX(0) translateY(0);
   }
-  .container {
-    height: auto;
-  }
-  a {
-    color: white;
-    position: relative;
-    &:after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 2px;
-      display: block;
-      margin-top: 5px;
-      right: 0;
-      background: ${white.default};
-      transition: 0.4s ease;
-    }
-    &:hover {
-      &:after {
-        width: 100%;
-        left: 0;
-        background: ${white.default};
-      }
-    }
-  }
   .nav-columns {
+    height: 100%;
     width: 100%;
-    transform: translateY(125px);
     display: flex;
-    padding: 0 32px;
-    .nav-column {
-      width: 45%;
-      &:last-child {
-        width: 55%;
-      }
-      .nav-label {
-        margin-bottom: 3rem;
-        font-size: 1.2rem;
-      }
-      .nav-links {
-        padding: 0;
-        margin: 0;
-        li {
-          list-style: none;
-          margin-bottom: 2.8rem;
-          a {
-            ${h3}
-            color: white;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: ${white.default};
-          }
-        }
-      }
-      .nav-infos {
-        display: flex;
-        flex-wrap: wrap;
-        .nav-info {
-          padding: 0;
-          width: 50%;
-          &:nth-of-type(2),
-          &:nth-of-type(3) {
-          }
-          .nav-info-label {
-            font-weight: 600;
-            margin-bottom: 1.4rem;
-          }
-          li {
-            list-style: none;
-            p {
-              color: ${white.default};
-            }
-            a {
-              ${p}
-              text-decoration: none;
-              color: ${white.default};
-            }
-          }
-        }
-      }
+    align-items: center;
+    justify-content: center;
+    &::after {
+      ${pseudo}
+      left: 50%;
+      top: 25%;
+      width: 2px;
+      height: 50%;
+      background-color: ${black.default};
+    }
+  }
+  .nav-column {
+    width: 50%;
+    height: 100%;
+    padding: ${toRem(50)};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    &:hover .nav-title {
+      color: ${black.default};
+    }
+    .nav-title {
+      ${h3}
+      color: white;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: ${white.default};
+      position: relative;
+      transition: 250ms;
+    }
+    .nav-more {
+      ${p}
+      color:#accce8  
     }
   }
 `

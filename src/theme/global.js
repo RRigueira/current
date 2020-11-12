@@ -6,7 +6,8 @@ import * as colors from "~theme/colors"
 import { toRem } from "~utils/mixins"
 import { container } from "./sizes"
 import { p, h1, h2, fontImport } from "./typography"
-import { blue, black } from "./colors"
+import { blue, black, grey } from "./colors"
+import { pseudo } from "../utils/mixins"
 
 export const globalStyles = css`
   ${normalize}
@@ -28,6 +29,7 @@ export const globalStyles = css`
     height: 100%;
     margin: 0;
     padding: 0;
+    cursor: none;
   }
 
   body {
@@ -92,6 +94,7 @@ export const globalStyles = css`
     color: inherit;
     text-decoration: none;
     transition: 250ms;
+    cursor: none;
   }
 
   button {
@@ -106,7 +109,7 @@ export const globalStyles = css`
     color: inherit;
     font-size: inherit;
     font-family: inherit;
-    cursor: pointer;
+    cursor: none;
   }
 
   address {
@@ -153,5 +156,42 @@ export const globalStyles = css`
   }
   .bottom {
     bottom: 0;
+  }
+  .linkBubble {
+    &::before {
+      ${pseudo}
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      transition: 250ms;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+    &:hover {
+      &::before {
+        background-color: ${blue.default};
+      }
+    }
+
+    &--grey {
+      &::before {
+        ${pseudo}
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        transition: 250ms;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+      &:hover {
+        &::before {
+          background-color: ${black.default};
+        }
+      }
+    }
   }
 `

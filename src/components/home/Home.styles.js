@@ -28,10 +28,11 @@ export const HomeContainer = styled.div`
       width: 100%;
       h1,
       a {
+        position: relative;
+        z-index: 2;
         color: ${white.default};
       }
       h1 {
-        position: relative;
         z-index: 12;
       }
     }

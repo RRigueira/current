@@ -7,7 +7,7 @@ import { white } from "../../theme/colors"
 export const Wrapper = styled.header`
   position: fixed;
   width: 100%;
-  height: ${toRem(150)};
+  height: ${toRem(200)};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,20 +23,21 @@ export const Wrapper = styled.header`
 `
 
 export const Toggle = styled.div`
-  cursor: pointer;
   display: flex;
   position: relative;
   align-items: center;
   justify-content: center;
   .toggle-button {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
     color: ${white.default};
-    &:hover {
-      background-color: ${blue.default};
-    }
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 400ms;
+    transform: translate(-5px, -50%);
     &--closed {
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
     }
   }
 `

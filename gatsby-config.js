@@ -10,7 +10,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
-        url: `http://currentwp.local/graphql`,
+        url: `https://admin.current.pt/wp/graphql`,
       },
     },
     `gatsby-transformer-sharp`,
