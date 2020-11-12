@@ -52,7 +52,7 @@ const Index = props => {
             return <Hero data={module} key={index}></Hero>
           case "page_Modules_Modules_ContactForm":
             return (
-              <Form key={index} lang={props.pageContext.language.code}></Form>
+              null//<Form key={index} lang={props.pageContext.language.code}></Form>
             )
           case "page_Modules_Modules_Newsletter":
             return <Newsletter key={index}></Newsletter>
@@ -66,29 +66,5 @@ const Index = props => {
   )
 }
 
-export const query = graphql`
-  {
-    allWpMenu {
-      edges {
-        node {
-          slug
-          menuItems {
-            nodes {
-              label
-              url
-              connectedNode {
-                node {
-                  ... on WpPage {
-                    uri
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
 
 export default Index
