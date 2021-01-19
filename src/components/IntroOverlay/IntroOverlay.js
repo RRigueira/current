@@ -6,11 +6,11 @@ import gsap from "gsap"
 const tl = gsap.timeline()
 
 const introAnim = () => {
-  tl.to(".intro-overlay", 1.8, {
+  tl.to(".intro-overlay", {
+    duration: 0.01,
     height: 0,
-    delay: 1.5,
+    delay: 0.01,
     ease: "expo.inOut",
-    stagger: 0.4,
   }).to(".intro-overlay", 0, {
     css: {
       display: "none",

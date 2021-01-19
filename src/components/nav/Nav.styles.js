@@ -10,60 +10,57 @@ export const Wrapper = styled.nav`
   width: 100%;
   height: 100%;
   z-index: 0;
-  display: none;
-  display: block;
+  display: flex;
+  align-items: center;
   position: fixed;
   overflow: hidden;
   color: white;
-  .back {
-    border-radius: 50%;
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    top: 25px;
-    right: 50px;
-    background: ${blue.default};
-    transform: translateX(0) translateY(0);
-  }
-  .nav-columns {
-    height: 100%;
+  background-color: #262626;
+  ul {
+    display: flex;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &::after {
-      ${pseudo}
-      left: 50%;
-      top: 25%;
-      width: 2px;
-      height: 50%;
-      background-color: ${black.default};
-    }
+    height: 50%;
   }
-  .nav-column {
-    width: 50%;
-    height: 100%;
-    padding: ${toRem(50)};
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    &:hover .nav-title {
-      color: ${black.default};
-    }
+`
+
+export const NavColumn = styled.li`
+  height: 100%;
+  flex: 1;
+  padding: ${toRem(50)};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  opacity: 0;
+
+  &:hover .nav-title {
+    opacity: 1;
+  }
+
+  &:hover .nav-more {
+    opacity: 1;
+    /* color: ${props => props.color}; */
+    color: ${blue.default};
+  }
+  a {
     .nav-title {
       ${h3}
+      display: block;
       color: white;
       text-transform: uppercase;
       text-decoration: none;
       color: ${white.default};
+      opacity: 0.7;
       position: relative;
       transition: 250ms;
     }
     .nav-more {
+      display: block;
       ${p}
-      color:#accce8  
+      color: ${white.default};
+      opacity: 0.7;
+      transition: 250ms;
     }
   }
 `

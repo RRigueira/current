@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Wrapper } from "./Nav.styles"
+import { NavColumn, Wrapper } from "./Nav.styles"
 import { Link } from "gatsby"
 
 import gsap from "gsap"
@@ -7,44 +7,38 @@ import gsap from "gsap"
 const tl = gsap.timeline()
 
 const introAnim = () => {
-  tl.to(".navContainer", 0.01, {
+  tl.to(".navContainer", {
+    duration: 0.01,
     css: {
       zIndex: "9",
     },
   })
-    .to("#title", 0.01, {
+    .to("#title", {
+      duration: 0.01,
       css: {
         zIndex: "5",
       },
     })
-    .to(".back", 2, {
+    .to(".nav-column", {
+      duration: 0.4,
       css: {
-        width: "250vw",
-        height: "250vw",
-        transform: "translateX(125vw) translateY(-125vw)",
+        opacity: 1,
       },
-    })
-    .to(".navc", 1, {
-      opacity: 1,
     })
 }
 
 const closeAnim = () => {
-  tl.to(".navc", 1, {
-    opacity: 0,
+  tl.to(".nav-column", {
+    duration: 0.4,
+    css: {
+      opacity: 0,
+    },
+  }).to(".navContainer", {
+    duration: 0.01,
+    css: {
+      zIndex: "0",
+    },
   })
-    .to(".back", 2, {
-      css: {
-        width: "150px",
-        height: "150px",
-        transform: "translateX(0) translateY(0)",
-      },
-    })
-    .to(".navContainer", 0.01, {
-      css: {
-        zIndex: "0",
-      },
-    })
 }
 
 const Nav = ({ open, setState }) => {
@@ -58,18 +52,26 @@ const Nav = ({ open, setState }) => {
 
   return (
     <Wrapper className="navContainer">
-      <div className="back"></div>
-      <div className="nav-columns navc">
-        <Link to="/service" className="nav-column">
-          <span className="nav-title">What we do</span>
-          <span className="nav-more">Learn More</span>
-        </Link>
-
-        <Link to="/service" className="nav-column">
-          <span className="nav-title">Who we are</span>
-          <span className="nav-more">Contact Us</span>
-        </Link>
-      </div>
+      <ul>
+        <NavColumn className="nav-column" color="red">
+          <Link to="/about">
+            <span className="nav-title">What we do</span>
+            <span className="nav-more">Learn More</span>
+          </Link>
+        </NavColumn>
+        <NavColumn className="nav-column" color="yellow">
+          <Link to="/about">
+            <span className="nav-title">What we've done</span>
+            <span className="nav-more">Learn More</span>
+          </Link>
+        </NavColumn>
+        <NavColumn className="nav-column" color="green">
+          <Link to="/service">
+            <span className="nav-title">Who we are</span>
+            <span className="nav-more">Contact Us</span>
+          </Link>
+        </NavColumn>
+      </ul>
     </Wrapper>
   )
 }

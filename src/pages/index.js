@@ -19,7 +19,7 @@ const Home = () => {
             Creative minds, <br />
             thriving for success.
             <br />
-            <strong>We are Current .</strong>
+            <strong>We are DEV .</strong>
           </h1>
         </div>
         <div className="row">

@@ -19,7 +19,7 @@ const Header = ({ dimensions, location }) => {
     <>
       <Wrapper>
         <div className="logo">
-          <Link to="/">Current</Link>
+          <Link to="/">DEV.STUDIO</Link>
         </div>
         <Toggle>
           <button
